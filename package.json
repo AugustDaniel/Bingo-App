@@ -2,7 +2,7 @@
   "name": "bingo",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://augustdaniel.github.io/test",
+  "homepage": "https://augustdaniel.github.io/Bingo-App",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
