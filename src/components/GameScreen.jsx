@@ -2,6 +2,7 @@ import NumberDrawer from "./NumberDrawer.jsx";
 import BingoCard from "./BingoCard.jsx";
 import React, {useState} from 'react';
 import {DrawContext} from "./DrawContext.jsx";
+import './GameScreen.css'
 
 export default function GameScreen() {
     const [draws, setDraws] = useState([]);
@@ -9,12 +10,7 @@ export default function GameScreen() {
     return (
         <>
             <DrawContext.Provider value={{draws, setDraws}}>
-                <section style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}>
+                <section className={"game-section"}>
                     <NumberDrawer></NumberDrawer>
                     <BingoCard></BingoCard>
                 </section>

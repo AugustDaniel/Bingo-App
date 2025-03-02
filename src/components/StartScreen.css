@@ -1,0 +1,10 @@
+.start-section button {
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .start-section button {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+}

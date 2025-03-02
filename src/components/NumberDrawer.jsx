@@ -5,7 +5,7 @@ import * as motion from "motion/react-client"
 
 const max = 75
 const min = 1
-const drawsToDisplay = 6;
+const drawsToDisplay = 5;
 
 export default function NumberDrawer() {
     const {draws, setDraws} = useDrawContext();
@@ -27,7 +27,7 @@ export default function NumberDrawer() {
 
                 return [drawNumber(prev), ...prev]
             })
-        }, 5000)
+        }, 3000)
 
         return () => {
             clearInterval(intervalRef.current)
@@ -35,19 +35,29 @@ export default function NumberDrawer() {
         }
     }, []);
 
+    const placeHolders = []
+    for (let i = 0; i < drawsToDisplay; i++) {
+        placeHolders[i] = i
+    }
 
     return (
         <>
             <div className="draw-container">
-                {draws.slice(0, drawsToDisplay).map((draw, index) => (
-                    <Draw key={idRef.current++} content={draw} isFirst={index === 0} isLast={index === drawsToDisplay - 1}/>
-                ))}
+                {placeHolders.map((cell) => {
+                    return (
+                        <Draw
+                            key={idRef.current++}
+                            content={draws.length > cell ? draws[cell] : ''}
+                            isFirst={cell === 0}
+                        />
+                    )
+                })}
             </div>
         </>
     );
 }
 
-function Draw({content, isFirst, isLast}) {
+function Draw({content, isFirst}) {
     const root = document.querySelector('.draw')
     let translate = -90
 
@@ -58,37 +68,35 @@ function Draw({content, isFirst, isLast}) {
         translate = -1 * (width + gap);
     }
 
-    console.log(translate)
-
     const animations = {
         first: {
             initial: {opacity: 0, x: translate},
             animate: {opacity: 1, x: 0, rotate: 360},
-            transition: {duration: 0.8}
-        },
-        last: {
-            initial: {opacity: 1, x: translate},
-            animate: {opacity: 0, x:0, rotate: 360},
-            transition: {duration: 0.8}
+            transition: {duration: 1.8}
         },
         regular: {
             initial: {x: translate},
             animate: {x: 0, rotate: 360},
-            transition: {duration: 0.8}
+            transition: {duration: 1.8}
         },
     };
 
-    const selectedAnimation = isFirst ? animations.first : isLast ? animations.last : animations.regular;
+    const selectedAnimation = isFirst ? animations.first : animations.regular;
 
     return (
-        <motion.p
+        <motion.div
             initial={selectedAnimation.initial}
             animate={selectedAnimation.animate}
             transition={selectedAnimation.transition}
-            className={`draw ${isFirst ? 'draw-first' : ''}`}
+            className={
+                `${content ?
+                    `draw ${isFirst ? 'draw-first' : ''}` :
+                    'invisible'
+                }`
+            }
         >
             {content}
-        </motion.p>
+        </motion.div>
     );
 }
 

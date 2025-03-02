@@ -1,11 +1,11 @@
 import * as motion from "motion/react-client"
-
+import './StartScreen.css'
 
 export default function StartScreen({setPressed}) {
 
     return (
         <>
-            <motion.div
+            <motion.section className={"start-section"}
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{duration: 1}}
@@ -14,7 +14,7 @@ export default function StartScreen({setPressed}) {
                 <button onClick={() => setPressed(true)}>
                     Start
                 </button>
-            </motion.div>
+            </motion.section>
         </>
     )
 }

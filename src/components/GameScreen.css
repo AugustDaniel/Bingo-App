@@ -1,0 +1,9 @@
+section.game-section {
+    width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+    section.game-section {
+        width: 300px;
+    }
+}
