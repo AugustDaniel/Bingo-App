@@ -3,6 +3,7 @@
     --width: 80px;
     --height: 80px;
     --translate: calc(var(--width) + var(--gap));
+    --duration: 1.8s;
 }
 
 .draw-container {

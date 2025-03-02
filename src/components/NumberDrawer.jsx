@@ -5,7 +5,8 @@ import * as motion from "motion/react-client"
 
 const max = 75
 const min = 1
-const drawsToDisplay = 5;
+const drawsToDisplay = 5
+const intervalDuration = 5000
 
 export default function NumberDrawer() {
     const {draws, setDraws} = useDrawContext();
@@ -27,7 +28,7 @@ export default function NumberDrawer() {
 
                 return [drawNumber(prev), ...prev]
             })
-        }, 3000)
+        }, intervalDuration)
 
         return () => {
             clearInterval(intervalRef.current)
@@ -49,6 +50,7 @@ export default function NumberDrawer() {
                             key={idRef.current++}
                             content={draws.length > cell ? draws[cell] : ''}
                             isFirst={cell === 0}
+                            isLast={cell === drawsToDisplay -1}
                         />
                     )
                 })}
@@ -57,31 +59,42 @@ export default function NumberDrawer() {
     );
 }
 
-function Draw({content, isFirst}) {
+function Draw({content, isFirst, isLast}) {
     const root = document.querySelector('.draw')
     let translate = -90
+    let duration = 1.8
 
     if (root) {
         const styles = getComputedStyle(root);
         const width = parseFloat(styles.getPropertyValue("--width"));
         const gap = parseFloat(styles.getPropertyValue("--gap"));
+        duration = parseFloat(styles.getPropertyValue("--duration"));
         translate = -1 * (width + gap);
     }
+
+    console.log(intervalDuration - 1000 * duration)
 
     const animations = {
         first: {
             initial: {opacity: 0, x: translate},
             animate: {opacity: 1, x: 0, rotate: 360},
-            transition: {duration: 1.8}
+            transition: {duration: duration}
         },
         regular: {
             initial: {x: translate},
             animate: {x: 0, rotate: 360},
-            transition: {duration: 1.8}
+            transition: {duration: duration}
         },
+        last: {
+            initial: {x: translate},
+            animate: [
+                {x: 0, rotate: 360, transition: {duration: duration}},
+                {opacity: 0, transition: {duration: duration, delay: intervalDuration / 1000 -duration}}
+            ]
+        }
     };
 
-    const selectedAnimation = isFirst ? animations.first : animations.regular;
+    const selectedAnimation = isLast ? animations.last : isFirst ? animations.first : animations.regular;
 
     return (
         <motion.div
