@@ -30,6 +30,9 @@ button.bingo-cell:hover {
     font-size: inherit;
     font-weight: 500;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .marked {
