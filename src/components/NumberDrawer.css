@@ -1,0 +1,48 @@
+.draw-container {
+    --gap: 10px;
+    --width: 90px;
+    --height: 90px;
+    --translate: calc(var(--width) + var(--gap));
+}
+
+.draw-container {
+    display: flex;
+    gap: var(--gap);
+    overflow: hidden;
+    align-content: center;
+    justify-content: start;
+    min-height: calc(var(--height) * 2);
+    width: calc(6 * (var(--width) + var(--gap)));
+    padding: 2rem 0 2rem calc(var(--gap) + var(--width));
+    font-size: 2rem;
+}
+
+p.draw-first {
+    background-color: #646cffaa;
+}
+
+.draw {
+    width: var(--width);
+    height: var(--height);
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.draw:hover {
+    filter: drop-shadow(0 0 0.5em #646cffaa);
+}
+
+@media only screen and (max-width: 600px) {
+    .draw-container {
+        font-size: 1rem;
+        --gap: 8px;
+        --width: 40px;
+        --height: 40px;
+    }
+}
+

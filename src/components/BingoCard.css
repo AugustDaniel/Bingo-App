@@ -1,0 +1,46 @@
+.bingo-card {
+    width: 700px;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    font-size: 2rem;
+}
+
+.bingo-row {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.bingo-cell {
+    border: 1px solid #ddd;
+    border-radius: 0;
+    width: 100%;
+    transition: background-image 0.5s;
+    font-size: inherit;
+}
+
+button.bingo-cell:hover {
+    filter: drop-shadow(0 0 0.5em white);
+}
+
+.bingo-header {
+    background: whitesmoke;
+    color: black;
+    align-content: center;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.marked {
+    background-image: repeating-linear-gradient(140deg, transparent 0%, transparent 48%, red 50%, transparent 52%, transparent 100%);
+}
+
+@media only screen and (max-width: 600px) {
+    .bingo-card {
+        width: 300px;
+        font-size: 1rem;
+    }
+}
+
+
+
