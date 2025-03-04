@@ -3,30 +3,7 @@ import "./BingoCard.css";
 import {useDrawContext} from "./DrawContext.jsx";
 import * as motion from "motion/react-client"
 
-function generateBingoCard() {
-    const letters = ["B", "I", "N", "G", "O"]
-    const grid = []
-
-    for (let i = 0; i < 5; i++) {
-        let columnNumbers = new Set()
-        let min = i * 15 + 1
-        let max = min + 14
-
-        while (columnNumbers.size < 5) {
-            columnNumbers.add(Math.floor(Math.random() * (max - min + 1)) + min)
-        }
-
-        grid.push([letters[i], ...columnNumbers])
-    }
-
-    grid[2][3] = "Free"
-
-    return grid
-}
-
-export default function BingoCard() {
-    const [card] = useState(generateBingoCard())
-
+export default function BingoCard({card, setCard}) {
     return (
         <div className="bingo-card">
             {card.map((row) => (
@@ -41,7 +18,7 @@ function BingoRow({row}) {
         <div className="bingo-row">
             {row.map((cell, idx) =>
                 idx === 0 ? <BingoHeader key={cell} content={cell}></BingoHeader> :
-                    <BingoCell key={cell} index={idx} content={cell}></BingoCell>)}
+                    <BingoCell key={cell.number} index={idx} content={cell.number}></BingoCell>)}
         </div>
     )
 }
