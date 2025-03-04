@@ -1,18 +1,22 @@
 import "./BingoCard.css";
 import * as motion from "motion/react-client"
+import {useState} from "react";
 
-export default function BingoCard({card, setCard, draws}) {
+export default function BingoCard({card, draws}) {
+    const [clicked, setClicked] = useState(false)
+
     function onClick(content, index, rowIndex) {
         if ((draws.includes(content.number) || content.number === "Free") && !content.scratched) {
-            const copy = [...card]
+            const copy = [...card.current]
             copy[rowIndex][index] = {number: content.number, scratched: true}
-            setCard(copy)
+            card.current = copy
+            setClicked(!clicked)
         }
     }
 
     return (
         <div className="bingo-card">
-            {card.map((row, rowIndex) => {
+            {card.current.map((row, rowIndex) => {
                 return (
                     <div key={row[0]} className="bingo-row">
                         {row.map((cell, idx) =>
@@ -22,7 +26,6 @@ export default function BingoCard({card, setCard, draws}) {
                                     index={idx}
                                     rowIndex={rowIndex}
                                     content={cell}
-                                    setCard={setCard}
                                     onClick={onClick}>
                                 </BingoCell>)}
                     </div>
