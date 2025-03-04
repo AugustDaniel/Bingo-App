@@ -6,19 +6,15 @@ import * as motion from "motion/react-client"
 export default function BingoCard({card, setCard}) {
     return (
         <div className="bingo-card">
-            {card.map((row) => (
-                <BingoRow key={row[0]} row={row} setCard={setCard}/>
-            ))}
-        </div>
-    )
-}
-
-function BingoRow({row, setCard}) {
-    return (
-        <div className="bingo-row">
-            {row.map((cell, idx) =>
-                idx === 0 ? <BingoHeader key={cell} content={cell}></BingoHeader> :
-                    <BingoCell key={cell.number} index={idx} content={cell.number} setCard={setCard}></BingoCell>)}
+            {card.map((row) => {
+                return (
+                    <div key={row[0]} className="bingo-row">
+                        {row.map((cell, idx) =>
+                            idx === 0 ? <BingoHeader key={cell} content={cell}></BingoHeader> :
+                                <BingoCell key={cell.number} index={idx} content={cell} setCard={setCard}></BingoCell>)}
+                    </div>
+                )
+            })}
         </div>
     )
 }
@@ -32,7 +28,7 @@ function BingoCell({content, index, setCard}) {
     const [scratched, setScratched] = React.useState(false)
 
     function onClick() {
-        if (draws.includes(content) || content === "Free") {
+        if (draws.includes(content.number) || content.number === "Free") {
             setScratched(true);
         }
     }
@@ -45,7 +41,7 @@ function BingoCell({content, index, setCard}) {
             animate={{opacity: 1}}
             transition={{delay: index * 0.15}}
         >
-            {content}
+            {content.number}
         </motion.button>
     );
 }
