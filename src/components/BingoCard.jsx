@@ -7,18 +7,18 @@ export default function BingoCard({card, setCard}) {
     return (
         <div className="bingo-card">
             {card.map((row) => (
-                <BingoRow key={row[0]} row={row}/>
+                <BingoRow key={row[0]} row={row} setCard={setCard}/>
             ))}
         </div>
     )
 }
 
-function BingoRow({row}) {
+function BingoRow({row, setCard}) {
     return (
         <div className="bingo-row">
             {row.map((cell, idx) =>
                 idx === 0 ? <BingoHeader key={cell} content={cell}></BingoHeader> :
-                    <BingoCell key={cell.number} index={idx} content={cell.number}></BingoCell>)}
+                    <BingoCell key={cell.number} index={idx} content={cell.number} setCard={setCard}></BingoCell>)}
         </div>
     )
 }
@@ -27,7 +27,7 @@ function BingoHeader({content}) {
     return <div className={"bingo-cell bingo-header"}>{content}</div>
 }
 
-function BingoCell({content, index}) {
+function BingoCell({content, index, setCard}) {
     const {draws} = useDrawContext()
     const [scratched, setScratched] = React.useState(false)
 
