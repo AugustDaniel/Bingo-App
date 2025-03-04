@@ -3,7 +3,7 @@ import * as motion from "motion/react-client"
 
 export default function BingoCard({card, setCard, draws}) {
     function onClick(content, index, rowIndex) {
-        if (draws.includes(content.number) || content.number === "Free") {
+        if ((draws.includes(content.number) || content.number === "Free") && !content.scratched) {
             const copy = [...card]
             copy[rowIndex][index] = {number: content.number, scratched: true}
             setCard(copy)
