@@ -1,5 +1,7 @@
+import './BingoButton.css'
+
 export default function BingoButton() {
     return (
-        <button>Test</button>
+        <button className={"bingo-button"}>Bingo!</button>
     )
 }
