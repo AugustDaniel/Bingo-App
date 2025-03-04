@@ -1,7 +1,6 @@
 import NumberDrawer from "./NumberDrawer.jsx";
 import BingoCard from "./BingoCard.jsx";
 import React, {useRef, useState} from 'react';
-import {DrawContext} from "./DrawContext.jsx";
 import './GameScreen.css'
 
 export default function GameScreen() {
@@ -10,12 +9,10 @@ export default function GameScreen() {
 
     return (
         <>
-            <DrawContext.Provider value={{draws, setDraws}}>
-                <section className={"game-section"}>
-                    <NumberDrawer></NumberDrawer>
-                    <BingoCard card={cardRef} draws={draws}></BingoCard>
-                </section>
-            </DrawContext.Provider>
+            <section className={"game-section"}>
+                <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
+                <BingoCard card={cardRef} draws={draws}></BingoCard>
+            </section>
         </>
     )
 }
@@ -32,7 +29,7 @@ function generateBingoCard() {
 
         while (columnNumbers.size < 5) {
             columnNumbers.add(
-               Math.floor(Math.random() * (max - min + 1)) + min)
+                Math.floor(Math.random() * (max - min + 1)) + min)
         }
 
         columnNumbers.forEach((num) => {

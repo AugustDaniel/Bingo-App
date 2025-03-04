@@ -1,5 +1,4 @@
 import './NumberDrawer.css'
-import {useDrawContext} from "./DrawContext.jsx";
 import React, {useEffect, useRef} from "react";
 import * as motion from "motion/react-client"
 
@@ -8,8 +7,7 @@ const min = 1
 const drawsToDisplay = 5
 const intervalDuration = 5000
 
-export default function NumberDrawer() {
-    const {draws, setDraws} = useDrawContext();
+export default function NumberDrawer({draws, setDraws}) {
     const intervalRef = useRef(null);
     const idRef = useRef(0)
 
@@ -50,7 +48,7 @@ export default function NumberDrawer() {
                             key={idRef.current++}
                             content={draws.length > cell ? draws[cell] : ''}
                             isFirst={cell === 0}
-                            isLast={cell === drawsToDisplay -1}
+                            isLast={cell === drawsToDisplay - 1}
                         />
                     )
                 })}
@@ -87,7 +85,7 @@ function Draw({content, isFirst, isLast}) {
             initial: {x: translate},
             animate: [
                 {x: 0, rotate: 360, transition: {duration: duration}},
-                {opacity: 0, transition: {duration: duration, delay: intervalDuration / 1000 -duration}}
+                {opacity: 0, transition: {duration: duration, delay: intervalDuration / 1000 - duration}}
             ]
         }
     };
