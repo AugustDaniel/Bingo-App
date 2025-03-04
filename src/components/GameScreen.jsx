@@ -2,6 +2,7 @@ import NumberDrawer from "./NumberDrawer.jsx";
 import BingoCard from "./BingoCard.jsx";
 import React, {useRef, useState} from 'react';
 import './GameScreen.css'
+import BingoButton from "./BingoButton.jsx";
 
 export default function GameScreen() {
     const [draws, setDraws] = useState([]);
@@ -12,6 +13,7 @@ export default function GameScreen() {
             <section className={"game-section"}>
                 <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
                 <BingoCard card={cardRef} draws={draws}></BingoCard>
+                <BingoButton></BingoButton>
             </section>
         </>
     )
