@@ -72,8 +72,6 @@ function Draw({content, isFirst, isLast}) {
         translate = -1 * (width + gap);
     }
 
-    console.log(intervalDuration - 1000 * duration)
-
     const animations = {
         first: {
             initial: {opacity: 0, x: translate},

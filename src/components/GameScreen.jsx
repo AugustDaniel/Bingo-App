@@ -13,7 +13,7 @@ export default function GameScreen() {
             <DrawContext.Provider value={{draws, setDraws}}>
                 <section className={"game-section"}>
                     <NumberDrawer></NumberDrawer>
-                    <BingoCard card={bingoCard} setCard={setBingoCard}></BingoCard>
+                    <BingoCard card={bingoCard} setCard={setBingoCard} draws={draws}></BingoCard>
                 </section>
             </DrawContext.Provider>
         </>
@@ -36,7 +36,6 @@ function generateBingoCard() {
         }
 
         columnNumbers.forEach((num) => {
-            console.log(num)
             columns.push({
                 number: num,
                 scratched: false
