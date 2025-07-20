@@ -1,4 +1,4 @@
-export default function generateBingoCard() {
+function generateBingoCard() {
     const letters = ["B", "I", "N", "G", "O"]
     const grid = []
 
@@ -27,3 +27,5 @@ export default function generateBingoCard() {
 
     return grid
 }
+
+export { generateBingoCard }

@@ -1,4 +1,4 @@
-import generateBingoCard from "../utils/bingoCardGenerator.js"
+import {generateBingoCard} from "../utils/bingoCardGenerator.js"
 import NumberDrawer from "./NumberDrawer.jsx";
 import BingoCard from "./BingoCard/BingoCard.jsx";
 import React, {useRef, useState} from 'react';
