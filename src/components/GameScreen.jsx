@@ -1,6 +1,6 @@
 import generateBingoCard from "../utils/bingoCardGenerator.js"
 import NumberDrawer from "./NumberDrawer.jsx";
-import BingoCard from "./BingoCard.jsx";
+import BingoCard from "./BingoCard/BingoCard.jsx";
 import React, {useRef, useState} from 'react';
 import './GameScreen.css'
 import BingoButton from "./BingoButton.jsx";
