@@ -1,19 +1,23 @@
 import {generateBingoCard} from "../utils/bingoCardGenerator.js"
 import NumberDrawer from "./NumberDrawer.jsx";
 import BingoCard from "./BingoCard/BingoCard.jsx";
-import React, {useRef, useState} from 'react';
+import {useState} from 'react';
 import './GameScreen.css'
 import BingoButton from "./BingoButton.jsx";
 
 export default function GameScreen() {
     const [draws, setDraws] = useState([]);
-    const cardRef = useRef(generateBingoCard())
+    const [card, setCard] = useState(() => generateBingoCard())
+
+    function isNumberDrawn(num) {
+        return draws.includes(num) || num === 'Free'
+    }
 
     return (
         <>
             <section className={"game-section"}>
                 <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
-                <BingoCard card={cardRef} draws={draws}></BingoCard>
+                <BingoCard card={card} isNumberDrawn={isNumberDrawn}/>
                 <BingoButton></BingoButton>
             </section>
         </>

@@ -1,5 +1,4 @@
 function generateBingoCard() {
-    const letters = ["B", "I", "N", "G", "O"]
     const grid = []
 
     for (let i = 0; i < 5; i++) {
@@ -13,19 +12,26 @@ function generateBingoCard() {
                 Math.floor(Math.random() * (max - min + 1)) + min)
         }
 
-        columnNumbers.forEach((num) => {
-            columns.push({
-                number: num,
-                scratched: false
-            })
-        })
-
-        grid.push([letters[i], ...columns])
+        columnNumbers.forEach(num => columns.push(num))
+        grid.push(columns)
     }
 
-    grid[2][3] = {number: "Free", scratched: false}
+    grid[2][2] = 'Free'
 
     return grid
 }
 
-export { generateBingoCard }
+function createScratchCard(card) {
+    let counter = 0
+    return card.map(column => (
+        column.map(number => (
+            {
+                id: counter++,
+                number,
+                scratched: false
+            }
+        ))
+    ))
+}
+
+export { generateBingoCard, createScratchCard }
