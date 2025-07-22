@@ -15,9 +15,17 @@ export default function BingoGrid({card, onClick}) {
         ))
     ))
 
+    const layoutStyle = {
+        display: 'grid',
+        gridTemplateColumns: `repeat(${card.length}, 1fr)`,
+        gridTemplateRows: `repeat(${card[0].length}, 1fr)`,
+    }
+
     return (
         <>
-            {gridElements}
+            <section style={layoutStyle} className={"bingo-grid"}>
+                {gridElements}
+            </section>
         </>
     )
 }
