@@ -23,6 +23,7 @@ div.draw-first {
 .draw, .invisible {
     height: var(--height);
     width: var(--width);
+    aspect-ratio: 1/1;
 }
 
 .draw {
@@ -51,18 +52,14 @@ div.draw-first {
 
 @media only screen and (max-width: 600px) {
     .draw .draw-letter {
-        font-size: 0.8rem;
-    }
-
-    .draw .draw-container {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .draw-container {
-        font-size: 1rem;
+        font-size: 1.5rem;
         --gap: 5px;
-        --width: 45px;
-        --height: 45px;
+        --width: 65px;
+        --height: 65px;
     }
 }
 
