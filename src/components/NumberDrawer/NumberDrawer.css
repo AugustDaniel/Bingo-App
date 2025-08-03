@@ -50,6 +50,14 @@ div.draw-first {
 }
 
 @media only screen and (max-width: 600px) {
+    .draw .draw-letter {
+        font-size: 0.8rem;
+    }
+
+    .draw .draw-container {
+        font-size: 1.5rem;
+    }
+
     .draw-container {
         font-size: 1rem;
         --gap: 5px;
