@@ -1,10 +1,30 @@
 button.bingo-button {
-    padding: 0.5rem 1rem;
-    border: white 1px solid;
+    all: unset;
+    display: inline-block;
+    padding: 0.5rem;
+    background-color: #f15351;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
     text-align: center;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    box-shadow: 0 5px #9a0a0b;
+    transition:
+            transform 0.05s ease,
+            box-shadow 0.05s ease;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
 }
 
 button.bingo-button:hover {
-    border: #646cffaa solid 1px;
-    filter: drop-shadow(0 0 0.5em #646cffaa);
+    filter: brightness(1.05);
+}
+
+button.bingo-button:active {
+    transform: translateY(5px);
+    box-shadow:
+            0 0 #9a0a0b,
+            inset 0 2px 2px rgba(0,0,0,0.2);
 }
