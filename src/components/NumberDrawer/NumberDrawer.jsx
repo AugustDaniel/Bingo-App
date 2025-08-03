@@ -1,6 +1,6 @@
 import './NumberDrawer.css'
 import React, {useState, useEffect, useRef} from "react";
-import {drawNumber} from "../../utils/bingoCardUtils.js"
+import {drawNumber} from "../../utils/bingoUtils.js"
 import Draw from "./Draw.jsx";
 
 export default function NumberDrawer({draws, setDraws}) {

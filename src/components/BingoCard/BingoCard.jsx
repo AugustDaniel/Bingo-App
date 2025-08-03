@@ -1,6 +1,6 @@
 import "./BingoCard.css";
 import {useState} from "react";
-import {createScratchCard} from '../../utils/bingoCardUtils.js'
+import {createScratchCard} from '../../utils/bingoCardGenerator.js'
 import BingoHeader from "./BingoHeader.jsx";
 import BingoGrid from "./BingoGrid.jsx";
 
