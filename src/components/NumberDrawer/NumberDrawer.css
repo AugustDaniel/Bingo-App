@@ -26,13 +26,19 @@ div.draw-first {
 }
 
 .draw {
+    color: black;
     border-radius: 50%;
     background-color: #1a1a1a;
-    color: white;
     font-weight: bold;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.draw .draw-letter {
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .draw:hover {

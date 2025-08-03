@@ -1,5 +1,5 @@
-import {generateBingoCard} from "../utils/bingoCardGenerator.js"
-import NumberDrawer from "./NumberDrawer.jsx";
+import {generateBingoCard} from "../utils/bingoCardUtils.js"
+import NumberDrawer from "./NumberDrawer/NumberDrawer.jsx";
 import BingoCard from "./BingoCard/BingoCard.jsx";
 import {useState} from 'react';
 import './GameScreen.css'
