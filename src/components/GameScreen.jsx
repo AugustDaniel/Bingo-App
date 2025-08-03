@@ -16,7 +16,7 @@ export default function GameScreen() {
             <motion.section className={"game-section"}
                             initial={{opacity: 0, y: 30}}
                             animate={{opacity: 1, y: 0}}
-                            transition={{duration: 1, ease: "easeOut"}}
+                            transition={{duration: 2, ease: "easeOut"}}
             >
                 <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
                 <BingoCard card={card} isNumberDrawn={(num) => isNumberDrawn(draws, num)}/>
