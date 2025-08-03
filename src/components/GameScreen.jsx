@@ -5,6 +5,7 @@ import {useState} from 'react';
 import './GameScreen.css'
 import BingoButton from "./BingoButton.jsx";
 import {isNumberDrawn} from "../utils/bingoUtils.js";
+import * as motion from "motion/react-client"
 
 export default function GameScreen() {
     const [draws, setDraws] = useState([]);
@@ -12,11 +13,15 @@ export default function GameScreen() {
 
     return (
         <>
-            <section className={"game-section"}>
+            <motion.section className={"game-section"}
+                            initial={{opacity: 0, y: 30}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 1, ease: "easeOut"}}
+            >
                 <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
                 <BingoCard card={card} isNumberDrawn={(num) => isNumberDrawn(draws, num)}/>
                 <BingoButton></BingoButton>
-            </section>
+            </motion.section>
         </>
     )
 }
