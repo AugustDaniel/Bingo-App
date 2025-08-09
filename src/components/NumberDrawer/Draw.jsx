@@ -1,5 +1,5 @@
-import * as motion from "motion/react-client";
-import React from "react";
+import { motion } from "motion/react"
+import React, {useEffect} from "react";
 
 export default function Draw({content, isFirst, isLast, config}) {
     const animations = {
@@ -36,8 +36,8 @@ export default function Draw({content, isFirst, isLast, config}) {
             return 'white';
         } else if (content >= 46 && content <= 60) {
             return 'green';
-        } else if (content >= 61 && content <= 75) {
-            return 'yellow';
+        } else {
+            return '#FFC107';
         }
     }
 
@@ -56,14 +56,18 @@ export default function Draw({content, isFirst, isLast, config}) {
     }
 
     const bingoStyling = {
-        backgroundColor: getBingoColor()
+        backgroundColor: getBingoColor(), // background with white in the middle
     }
 
     return (
         <motion.div
             initial={selectedAnimation.initial}
             animate={selectedAnimation.animate}
-            transition={selectedAnimation.transition}
+            transition={{
+                ...selectedAnimation.transition,
+                type: "tween",
+                ease: "easeInOut"
+            }}
             style={bingoStyling}
             className={
                 `${content ?

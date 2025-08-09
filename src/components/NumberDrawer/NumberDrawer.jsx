@@ -1,7 +1,8 @@
 import './NumberDrawer.css'
-import React, {useState, useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import {drawNumber} from "../../utils/bingoUtils.js"
 import Draw from "./Draw.jsx";
+import useOnResizeWindow from "../../hooks/useOnResizeWindow.jsx";
 
 export default function NumberDrawer({draws, setDraws}) {
     const max = 75
@@ -13,30 +14,34 @@ export default function NumberDrawer({draws, setDraws}) {
     const elementRef = useRef(null);
     const idRef = useRef(0) // needed to ensure wanted render behavior
 
-    const [config, setConfig] = useState({
+    const configRef = useRef({
         translate: -90, // Default value
         duration: 1.8, // Default value
         intervalDuration
-    });
+    })
 
     // Initialize the config state with values from CSS variables
-    useEffect(() => {
-        if (!elementRef.current) {
-            return;
+    useOnResizeWindow(() => {
+        function changeConfig() {
+            if (!elementRef.current) {
+                return;
+            }
+
+            const styles = getComputedStyle(elementRef.current);
+            const width = parseFloat(styles.getPropertyValue("--width"));
+            const gap = parseFloat(styles.getPropertyValue("--gap"));
+            const duration = parseFloat(styles.getPropertyValue("--duration"));
+            const translate = -1 * (width + gap);
+
+            configRef.current = {
+                ...configRef.current,
+                duration,
+                translate
+            }
         }
 
-        const styles = getComputedStyle(elementRef.current);
-        const width = parseFloat(styles.getPropertyValue("--width"));
-        const gap = parseFloat(styles.getPropertyValue("--gap"));
-        const duration = parseFloat(styles.getPropertyValue("--duration"));
-        const translate = -1 * (width + gap);
-
-        setConfig(prev => ({
-            ...prev,
-            duration,
-            translate
-        }))
-    }, [])
+        changeConfig();
+    })
 
     // Start the interval to draw numbers
     useEffect(() => {
@@ -70,7 +75,7 @@ export default function NumberDrawer({draws, setDraws}) {
                 return (
                     <Draw
                         key={idRef.current++}
-                        config={config}
+                        config={configRef.current}
                         content={draw ?? ''}
                         isFirst={index === 0}
                         isLast={index === drawsToDisplay - 1}
