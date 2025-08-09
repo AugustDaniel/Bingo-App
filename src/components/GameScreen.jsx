@@ -5,7 +5,7 @@ import {useState} from 'react';
 import './GameScreen.css'
 import BingoButton from "./BingoButton.jsx";
 import {isNumberDrawn} from "../utils/bingoUtils.js";
-import * as motion from "motion/react-client"
+import { motion } from "motion/react"
 
 export default function GameScreen() {
     const [draws, setDraws] = useState([]);

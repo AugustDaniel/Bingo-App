@@ -1,4 +1,4 @@
-import * as motion from "motion/react-client"
+import { motion } from "motion/react"
 import './StartScreen.css'
 
 export default function StartScreen({setPressed}) {

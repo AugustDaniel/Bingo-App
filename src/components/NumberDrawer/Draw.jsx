@@ -1,5 +1,4 @@
 import { motion } from "motion/react"
-import React, {useEffect} from "react";
 
 export default function Draw({content, isFirst, isLast, config}) {
     const animations = {
