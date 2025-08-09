@@ -68,7 +68,7 @@ div.draw-first {
 }
 
 .draw:hover {
-    filter: drop-shadow(0 0 0.5em #646cffaa);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.34));
 }
 
 .invisible {
