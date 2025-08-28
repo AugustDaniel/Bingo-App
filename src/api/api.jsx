@@ -14,3 +14,5 @@ axiosRetry(
         retryDelay: axiosRetry.linearDelay
     }
 )
+
+export default api
