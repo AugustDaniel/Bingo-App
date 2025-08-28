@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
-import StartScreen from "./routes/StartScreen/StartScreen.jsx";
-import GameScreen from "./routes/GameScreen/GameScreen.jsx";
+import StartScreen from "./StartScreen/StartScreen.jsx";
+import GameScreen from "./GameScreen/GameScreen.jsx";
 
 const router = createBrowserRouter([
         {
