@@ -3,7 +3,7 @@ import NumberDrawer from "../../components/NumberDrawer/NumberDrawer.jsx";
 import BingoCard from "../../components/BingoCard/BingoCard.jsx";
 import {useState} from 'react';
 import './GameScreen.module.css'
-import BingoButton from "../../components/BingoButton.jsx";
+import BingoButton from "../../components/BingoButton/BingoButton.jsx";
 import {isNumberDrawn} from "../../utils/bingoUtils.js";
 import {motion} from "motion/react"
 
