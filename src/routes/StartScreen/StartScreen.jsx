@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom"
 import {motion} from "motion/react"
 import './StartScreen.module.css'
+import StartButton from "../../components/StartButton/StartButton.jsx";
 
 export default function StartScreen() {
 
@@ -12,9 +13,9 @@ export default function StartScreen() {
                             transition={{duration: 1}}
             >
                 <h1>Let's play Bingo!</h1>
-                <button>
+                <StartButton>
                     <Link to={'play'}>Start</Link>
-                </button>
+                </StartButton>
             </motion.section>
         </>
     )

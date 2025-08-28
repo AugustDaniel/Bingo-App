@@ -2,38 +2,6 @@ a {
     all: unset;
 }
 
-.start-section button {
-    all: unset;
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: #10d501; /* Softer, warmer orange */
-    color: white;
-    font-weight: 700;
-    font-size: 1.75rem;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow:
-            0 5px #007e33;
-    transition:
-            background-color 0.2s ease,
-            transform 0.1s ease,
-            box-shadow 0.1s ease;
-    cursor: pointer;
-    user-select: none;
-    box-sizing: border-box;
-    min-width: 200px;
-}
-
-.start-section button:hover {
-    background-color: #07b801;
-}
-
-.start-section button:active {
-    transform: translateY(3px);
-    box-shadow:
-            0 2px #00471a;
-}
-
 @media only screen and (max-width: 600px) {
     .start-section button {
         padding: 0.5rem;
