@@ -1,11 +1,11 @@
-import {generateBingoCard} from "../utils/bingoCardGenerator.js"
-import NumberDrawer from "./NumberDrawer/NumberDrawer.jsx";
-import BingoCard from "./BingoCard/BingoCard.jsx";
+import {generateBingoCard} from "../../utils/bingoCardGenerator.js"
+import NumberDrawer from "../../components/NumberDrawer/NumberDrawer.jsx";
+import BingoCard from "../../components/BingoCard/BingoCard.jsx";
 import {useState} from 'react';
-import './GameScreen.css'
-import BingoButton from "./BingoButton.jsx";
-import {isNumberDrawn} from "../utils/bingoUtils.js";
-import { motion } from "motion/react"
+import './GameScreen.module.css'
+import BingoButton from "../../components/BingoButton.jsx";
+import {isNumberDrawn} from "../../utils/bingoUtils.js";
+import {motion} from "motion/react"
 
 export default function GameScreen() {
     const [draws, setDraws] = useState([]);

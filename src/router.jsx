@@ -1,11 +1,16 @@
 import {createBrowserRouter} from "react-router-dom";
-import App from "./App.jsx";
+import StartScreen from "./routes/StartScreen/StartScreen.jsx";
+import GameScreen from "./routes/GameScreen/GameScreen.jsx";
 
 const router = createBrowserRouter([
         {
             path: "/",
-            element: <App/>,
+            element: <StartScreen/>,
         },
+        {
+            path: "/play",
+            element: <GameScreen/>
+        }
     ],
     {
         basename: import.meta.env.BASE_URL,

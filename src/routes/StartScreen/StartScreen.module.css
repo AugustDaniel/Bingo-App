@@ -1,3 +1,7 @@
+a {
+    all: unset;
+}
+
 .start-section button {
     all: unset;
     display: inline-block;
