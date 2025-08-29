@@ -1,4 +1,4 @@
-section.game-section {
+section.play-section {
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@ section.game-section {
 }
 
 @media only screen and (max-width: 600px) {
-    section.game-section {
+    section.play-section {
         width: 300px;
     }
 }

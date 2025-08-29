@@ -1,6 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import StartScreen from "./StartScreen/StartScreen.jsx";
 import PlayScreen from "./PlayScreen/PlayScreen.jsx";
+import GameScreen from "./GameScreen/GameScreen.jsx";
 
 const router = createBrowserRouter([
         {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
         {
             path: "/play",
             element: <PlayScreen/>
+        },
+        {
+            path: "/game",
+            element: <GameScreen/>
         }
     ],
     {
