@@ -1,4 +1,4 @@
-import './StartButton.module.css'
+import './StartButton.css'
 
 export default function StartButton(props) {
     return (

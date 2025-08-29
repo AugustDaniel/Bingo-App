@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import {motion} from "motion/react"
-import './StartScreen.module.css'
+import './StartScreen.css'
 import StartButton from "../../components/StartButton/StartButton.jsx";
 
 export default function StartScreen() {
