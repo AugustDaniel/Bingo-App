@@ -1,9 +1,10 @@
 import './RoomForm.css'
 import {Form} from "react-router-dom";
+import StartButton from "../StartButton/StartButton.jsx";
 
-export default function RoomForm(props) {
+export default function RoomForm() {
     return (
-        <>
+        <section className="room-form">
             <h2>Create a room</h2>
             <Form method="post" id="create-form">
                 <label htmlFor="room-name">
@@ -24,8 +25,8 @@ export default function RoomForm(props) {
                         required
                     />
                 </label>
-                <button type={"submit"}>Create</button>
+                <StartButton type={"submit"} className={"form-button"}>Create</StartButton>
             </Form>
-        </>
+        </section>
     )
 }

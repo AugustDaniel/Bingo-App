@@ -1,0 +1,27 @@
+.room-form, .room-form label, #create-form {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.room-form #create-form {
+    flex-direction: row;
+    gap: 10px
+}
+
+.room-form h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.room-form input {
+    width: 75px;
+}
+
+.room-form {
+    height: 120px;
+    background-color: #151515;
+    padding: 25px;
+    border-radius: 30px;
+}
+
