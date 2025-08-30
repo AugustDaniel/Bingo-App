@@ -1,12 +1,11 @@
 import './GameScreen.css'
 import RoomList from "../../components/RoomList/RoomList.jsx";
-import {Form, useLoaderData} from "react-router-dom";
-import {useState} from "react";
+import {useLoaderData} from "react-router-dom";
 import RoomForm from "../../components/RoomForm/RoomForm.jsx";
 
 export default function GameScreen() {
     const loaderData = useLoaderData();
-    const [rooms, setRooms] = useState(loaderData.rooms);
+    const rooms = loaderData.rooms
 
     return (
         <>
