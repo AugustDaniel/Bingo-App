@@ -5,7 +5,7 @@ export function getGame() {
 }
 
 export function createRoom(roomName, roomCapacity) {
-    return api.post("/game", {
+    return api.post("/game/rooms", {
         name: roomName,
         capacity: roomCapacity
     })
