@@ -31,6 +31,10 @@ h1 {
     line-height: 1.1;
 }
 
+a {
+    all: unset;
+}
+
 @media only screen and (max-width: 600px) {
     h1 {
         font-size: 4rem;

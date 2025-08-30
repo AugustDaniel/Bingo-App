@@ -1,7 +1,3 @@
-a {
-    all: unset;
-}
-
 @media only screen and (max-width: 600px) {
     .start-section button {
         padding: 0.5rem;

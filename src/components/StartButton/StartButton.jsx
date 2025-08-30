@@ -2,7 +2,7 @@ import './StartButton.css'
 
 export default function StartButton(props) {
     return (
-        <button>
+        <button className={"start-button"}>
             {props.children}
         </button>
     )
