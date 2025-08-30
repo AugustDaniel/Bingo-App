@@ -13,9 +13,11 @@ export default function StartScreen() {
                             transition={{duration: 1}}
             >
                 <h1>Let's play Bingo!</h1>
-                <StartButton>
-                    <Link to={'game'}>Start</Link>
-                </StartButton>
+                <Link to={'game'}>
+                    <StartButton>
+                        Start
+                    </StartButton>
+                </Link>
             </motion.section>
         </>
     )
