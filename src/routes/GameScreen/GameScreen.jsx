@@ -8,12 +8,14 @@ export default function GameScreen() {
     const loaderData = useLoaderData()
     const rooms = loaderData.rooms
 
+    console.log(rooms)
+
     const informationText = rooms.length === 0
         ? "No rooms available"
         : "Rooms"
 
     const roomListItems = rooms.map((room) => (
-        <RoomListItem name={room.name} key={room.room_id}/>
+        <RoomListItem room={room} key={room.room_id}/>
     ))
 
     return (
