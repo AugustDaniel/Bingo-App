@@ -28,11 +28,13 @@ export default function GameScreen() {
                 {informationText}
             </h2>
 
-            <RoomList>
-                {roomListItems}
-            </RoomList>
+            <section className="rooms">
+                <RoomList>
+                    {roomListItems}
+                </RoomList>
 
-            <RoomForm/>
+                <RoomForm/>
+            </section>
         </>
     )
 }
