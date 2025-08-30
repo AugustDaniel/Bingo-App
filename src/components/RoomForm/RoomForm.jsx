@@ -25,7 +25,7 @@ export default function RoomForm() {
                         required
                     />
                 </label>
-                <StartButton type={"submit"} className={"form-button"}>Create</StartButton>
+                <StartButton className={"form-button"}>Create</StartButton>
             </Form>
         </section>
     )

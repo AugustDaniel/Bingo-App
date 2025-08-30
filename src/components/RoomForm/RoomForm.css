@@ -25,3 +25,9 @@
     border-radius: 30px;
 }
 
+#create-form .form-button {
+    min-width: 100px;
+    width: 20px;
+    font-size: 1rem;
+    padding: 0;
+}
