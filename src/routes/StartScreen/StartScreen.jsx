@@ -14,7 +14,7 @@ export default function StartScreen() {
             >
                 <h1>Let's play Bingo!</h1>
                 <StartButton>
-                    <Link to={'play'}>Start</Link>
+                    <Link to={'game'}>Start</Link>
                 </StartButton>
             </motion.section>
         </>
