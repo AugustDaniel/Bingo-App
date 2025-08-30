@@ -19,7 +19,7 @@ export default function RoomForm(props) {
                     <span>capacity</span>
                     <input
                         id="room-capacity"
-                        type="text"
+                        type="number"
                         name={"room-capacity"}
                         required
                     />
