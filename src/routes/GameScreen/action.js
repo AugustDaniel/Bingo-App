@@ -1,3 +1,3 @@
-export default function action({request}) {
-    console.log("action")
+export default async function action({request}) {
+
 }
