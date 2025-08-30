@@ -1,0 +1,28 @@
+.player-name-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-name-section h1 {
+    font-size: 2rem;
+}
+
+.player-name-form input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+}
+
+.player-name-form button {
+    padding: 0;
+    min-height: 40px;
+    max-height: 40px;
+    min-width: 150px;
+    max-width: 150px;
+    font-size: 1.2rem;
+}

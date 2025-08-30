@@ -4,6 +4,7 @@ import PlayScreen from "./PlayScreen/PlayScreen.jsx";
 import GameScreen from "./GameScreen/GameScreen.jsx";
 import gameLoader from "./GameScreen/loader.js";
 import gameAction from "./GameScreen/action.js";
+import JoinScreen from "./JoinScreen/JoinScreen.jsx";
 
 const router = createBrowserRouter([
         {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
             path: "/game",
             element: <GameScreen/>,
             loader: gameLoader,
-            action: gameAction
+            action: gameAction,
+        },
+        {
+            path: "/game/:roomId",
+            element: <JoinScreen/>
         }
     ],
     {
