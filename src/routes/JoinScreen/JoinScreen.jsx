@@ -8,8 +8,8 @@ export default function JoinScreen() {
     return (
         <section className="player-name-section">
             <h1>Please enter your name</h1>
-            <Form className={"player-name-form"}>
-                <input type="text"/>
+            <Form method="post" className={"player-name-form"}>
+                <input type="text" name={"player-name"}/>
                 <StartButton>
                     Confirm
                 </StartButton>
