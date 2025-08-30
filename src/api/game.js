@@ -1,5 +1,5 @@
 import api from './api.js'
 
-function getGame() {
+export function getGame() {
     return api.get("/game")
 }
