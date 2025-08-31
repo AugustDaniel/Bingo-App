@@ -5,7 +5,7 @@ export default async function action({request, params}) {
     const playerName = formData.get("player-name")
     const roomId = params.roomId
 
-    return await joinRoom(playerName, roomId)
+    return await joinRoom(roomId, playerName)
         .catch(err => {
             return {error: err.response.data.error}
         })
