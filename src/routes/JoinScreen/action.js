@@ -7,6 +7,6 @@ export default async function action({request, params}) {
 
     return await joinRoom(playerName, roomId)
         .catch(err => {
-            return {error: err}
+            return {error: err.response.data.error}
         })
 }
