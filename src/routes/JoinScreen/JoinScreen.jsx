@@ -1,9 +1,13 @@
 import './JoinScreen.css'
-import {Form, useParams} from "react-router-dom";
+import {Form, useActionData} from "react-router-dom";
 import StartButton from "../../components/StartButton/StartButton.jsx";
+import useErrorToast from "../../hooks/useErrorToast.jsx";
 
 export default function JoinScreen() {
-    const roomId = useParams()
+    const actionData = useActionData()
+    console.log(actionData)
+    const errorMessage = actionData?.error
+    useErrorToast(errorMessage)
 
     return (
         <section className="player-name-section">

@@ -12,7 +12,7 @@ export function createRoom(roomName, roomCapacity) {
 }
 
 export function joinRoom(roomId, playerName) {
-    return api.post(`/game/rooms/${roomId}/payers`, {
+    return api.post(`/game/rooms/${roomId}/players`, {
         name: playerName
     })
 }
