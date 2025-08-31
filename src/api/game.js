@@ -10,3 +10,9 @@ export function createRoom(roomName, roomCapacity) {
         capacity: roomCapacity
     })
 }
+
+export function joinRoom(roomId, playerName) {
+    return api.post(`/game/rooms/${roomId}/payers`, {
+        name: playerName
+    })
+}
