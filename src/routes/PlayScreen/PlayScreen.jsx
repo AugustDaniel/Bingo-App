@@ -1,15 +1,22 @@
-import {generateBingoCard} from "../../utils/bingoCardGenerator.js"
 import NumberDrawer from "../../components/NumberDrawer/NumberDrawer.jsx";
 import BingoCard from "../../components/BingoCard/BingoCard.jsx";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './PlayScreen.css'
 import BingoButton from "../../components/BingoButton/BingoButton.jsx";
 import {isNumberDrawn} from "../../utils/bingoUtils.js";
 import {motion} from "motion/react"
+import {useLoaderData} from "react-router-dom";
 
 export default function PlayScreen() {
     const [draws, setDraws] = useState([]);
-    const [card, setCard] = useState(() => generateBingoCard())
+    const [card, setCard] = useState([[]])
+    const ws = useLoaderData()
+
+    useEffect(() => {
+         console.log(ws)
+
+        return () => ws.close()
+    }, [ws])
 
     return (
         <>
