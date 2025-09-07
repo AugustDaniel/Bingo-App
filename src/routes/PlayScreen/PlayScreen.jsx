@@ -18,8 +18,7 @@ export default function PlayScreen() {
                 setDraws(prevState => [Number(event.number), ...prevState])
                 break
             case "card":
-                console.log("Received card:", event.message);
-                setCard(event.card)
+                setCard(event.message)
                 break
             default:
                 console.log(event.message)
