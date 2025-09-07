@@ -1,7 +1,7 @@
 ul.room-list {
     all: unset;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 400px;
+    max-height: 400px;
     overflow-y: auto;
     display: block;
 }
