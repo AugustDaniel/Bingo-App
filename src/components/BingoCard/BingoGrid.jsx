@@ -3,14 +3,14 @@ export default function BingoGrid({card, onClick}) {
         return grid[0].map((_, rowIndex) => grid.map(col => col[rowIndex]));
     }
 
-    const gridElements = transpose(card).map(column => (
-        column.map(cell => (
+    const gridElements = transpose(card).map((column, columnIndex) => (
+        column.map((cell, cellIndex) => (
             <button
-                key={cell.id}
+                key={columnIndex * 10 + cellIndex}
                 className={`bingo-cell ${cell.scratched ? 'marked' : ''}`}
-                onClick={() => onClick(cell.number)}
+                onClick={() => onClick(cell.content)}
             >
-                {cell.number}
+                {cell.content}
             </button>
         ))
     ))

@@ -18,7 +18,7 @@ export default function PlayScreen() {
                 setDraws(prevState => [Number(event.number), ...prevState])
                 break
             case "card":
-                setCard(event.message)
+                setCard(event.message.card)
                 break
             default:
                 console.log(event.message)
@@ -40,7 +40,7 @@ export default function PlayScreen() {
                             transition={{duration: 2, ease: "easeOut"}}
             >
                 <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
-                <BingoCard card={card} isNumberDrawn={(num) => isNumberDrawn(draws, num)}/>
+                <BingoCard card={card} setCard={setCard} isNumberDrawn={(num) => isNumberDrawn(draws, num)}/>
                 <BingoButton></BingoButton>
             </motion.section>
         </>
