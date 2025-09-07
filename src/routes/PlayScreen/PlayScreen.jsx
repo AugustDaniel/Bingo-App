@@ -12,10 +12,25 @@ export default function PlayScreen() {
     const [card, setCard] = useState([[]])
     const ws = useLoaderData()
 
-    useEffect(() => {
-         console.log(ws)
+    function handleMessage(event) {
+        switch (event.type) {
+            case "draw":
+                setDraws(prevState => [Number(event.number), ...prevState])
+                break
+            case "card":
+                console.log("Received card:", event.message);
+                setCard(event.card)
+                break
+            default:
+                console.log(event.message)
+        }
+    }
 
-        return () => ws.close()
+    useEffect(() => {
+        ws.onmessage = (event) => {
+            const message = JSON.parse(event.data)
+            handleMessage(message)
+        }
     }, [ws])
 
     return (
