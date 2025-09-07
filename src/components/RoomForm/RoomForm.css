@@ -11,18 +11,26 @@
 
 .room-form h2 {
     text-align: center;
-    margin: 10px 0;
+    margin-top: 0;
 }
 
 .room-form input {
     width: 75px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.room-form label > span {
+    margin-bottom: 2px;
 }
 
 .room-form {
     height: 120px;
     background-color: #151515;
-    padding: 25px;
     border-radius: 30px;
+    padding-block: 10px;
+    padding-inline: 20px;
 }
 
 #create-form .form-button {
