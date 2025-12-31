@@ -41,15 +41,6 @@ export default function PlayScreen() {
         }
     }, [lastJsonMessage])
 
-    // useEffect(() => {
-    //     ws.onmessage = (event) => {
-    //         const message = JSON.parse(event.data)
-    //         console.log("Received message", message)
-    //         handleMessage(message)
-    //         return false
-    //     }
-    // }, [readyState])
-
     return (
         <>
             <motion.section className={"play-section"}
@@ -57,7 +48,7 @@ export default function PlayScreen() {
                             animate={{opacity: 1, y: 0}}
                             transition={{duration: 2, ease: "easeOut"}}
             >
-                <NumberDrawer draws={draws} setDraws={setDraws}></NumberDrawer>
+                <NumberDrawer draws={draws}></NumberDrawer>
                 <BingoCard card={card} setCard={setCard} isNumberDrawn={(num) => isNumberDrawn(draws, num)}/>
                 <BingoButton></BingoButton>
             </motion.section>

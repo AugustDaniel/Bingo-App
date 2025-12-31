@@ -1,16 +1,12 @@
 import './NumberDrawer.css'
-import React, {useEffect, useRef} from "react";
-import {drawNumber} from "../../utils/bingoUtils.js"
+import { useRef } from "react";
 import Draw from "./Draw.jsx";
 import useOnResizeWindow from "../../hooks/useOnResizeWindow.jsx";
 
 export default function NumberDrawer({draws, setDraws}) {
-    const max = 75
-    const min = 1
     const drawsToDisplay = 5
     const intervalDuration = 5000
 
-    const intervalRef = useRef(null);
     const elementRef = useRef(null);
     const idRef = useRef(0) // needed to ensure wanted render behavior
 
@@ -42,30 +38,6 @@ export default function NumberDrawer({draws, setDraws}) {
 
         changeConfig();
     })
-
-    // Start the interval to draw numbers
-    useEffect(() => {
-        if (intervalRef.current) {
-            return;
-        }
-
-        intervalRef.current = setInterval(() => {
-            setDraws((prev) => {
-                if (prev.length >= max) {
-                    clearInterval(intervalRef.current);
-                    intervalRef.current = null;
-                    return prev
-                }
-
-                return [drawNumber(prev, min, max), ...prev]
-            })
-        }, intervalDuration)
-
-        return () => {
-            clearInterval(intervalRef.current)
-            intervalRef.current = null
-        }
-    }, []);
 
     return (
         <div className="draw-container" ref={elementRef}>
