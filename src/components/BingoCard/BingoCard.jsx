@@ -2,12 +2,8 @@ import "./BingoCard.css";
 import BingoHeader from "./BingoHeader.jsx";
 import BingoGrid from "./BingoGrid.jsx";
 
-export default function BingoCard({card, setCard, isNumberDrawn}) {
+export default function BingoCard({card, setCard}) {
     function scratchNum(num) {
-        if (!isNumberDrawn(num)) {
-            return
-        }
-
         setCard(prevCard => (
             prevCard.map(column => (
                 column.map(scratchNum => {

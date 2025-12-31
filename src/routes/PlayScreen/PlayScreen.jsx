@@ -3,7 +3,6 @@ import BingoCard from "../../components/BingoCard/BingoCard.jsx";
 import {useEffect, useState} from 'react';
 import './PlayScreen.css'
 import BingoButton from "../../components/BingoButton/BingoButton.jsx";
-import {isNumberDrawn} from "../../utils/bingoUtils.js";
 import {motion} from "motion/react"
 import {useLoaderData} from "react-router-dom";
 import useWebSocket, { ReadyState } from "react-use-websocket"
@@ -50,7 +49,7 @@ export default function PlayScreen() {
                             transition={{duration: 2, ease: "easeOut"}}
             >
                 <NumberDrawer draws={draws}></NumberDrawer>
-                <BingoCard card={card} setCard={setCard} isNumberDrawn={(num) => isNumberDrawn(draws, num)}/>
+                <BingoCard card={card} setCard={setCard}/>
                 <BingoButton></BingoButton>
             </motion.section>
         </>
