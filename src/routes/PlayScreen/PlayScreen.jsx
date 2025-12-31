@@ -8,7 +8,7 @@ import {useLoaderData} from "react-router-dom";
 import useWebSocket, { ReadyState } from "react-use-websocket"
 
 export default function PlayScreen() {
-    const [draws, setDraws] = useState([]);
+    const [draws, setDraws] = useState([])
     const [card, setCard] = useState([[]])
     const wsURL = useLoaderData()
     const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(
