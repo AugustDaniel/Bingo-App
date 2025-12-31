@@ -7,9 +7,7 @@ export default function BingoCard({card, setCard}) {
         setCard(prevCard => (
             prevCard.map(column => (
                 column.map(scratchNum => {
-                    console.log("looking")
                     if (scratchNum.content === num && !scratchNum.scratched) {
-                        console.log("num found")
                         return (
                             {
                                 ...scratchNum,
@@ -17,7 +15,6 @@ export default function BingoCard({card, setCard}) {
                             }
                         )
                     }
-                    console.log(prevCard)
                     return scratchNum;
                 })
             ))
