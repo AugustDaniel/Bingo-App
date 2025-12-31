@@ -27,6 +27,7 @@ export default function PlayScreen() {
                 setDraws(prevState => [Number(message.message), ...prevState])
                 break
             case "card":
+                console.log(message.message.card)
                 setCard(message.message.card)
                 break
             default:
@@ -40,7 +41,7 @@ export default function PlayScreen() {
             handleMessage(lastJsonMessage)
         }
     }, [lastJsonMessage])
-
+    console.log(card)
     return (
         <>
             <motion.section className={"play-section"}
