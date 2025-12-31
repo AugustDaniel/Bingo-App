@@ -10,6 +10,7 @@ import useWebSocket, { ReadyState } from "react-use-websocket"
 export default function PlayScreen() {
     const [draws, setDraws] = useState([])
     const [card, setCard] = useState([[]])
+    const [bingo, setBingo] = useState(false)
     const wsURL = useLoaderData()
     const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(
         wsURL,
@@ -27,6 +28,12 @@ export default function PlayScreen() {
             case "card":
                 setCard(message.message.card)
                 break
+            case "valid_bingo":
+                setBingo(true)
+            case "invalid_bingo":
+                console.log(message.message)
+            case "bingo":
+                console.log(message.message)
             default:
                 console.log(message.message)
         }
@@ -47,7 +54,7 @@ export default function PlayScreen() {
             >
                 <NumberDrawer draws={draws}></NumberDrawer>
                 <BingoCard card={card} setCard={setCard}/>
-                <BingoButton></BingoButton>
+                <BingoButton onClick={checkForBingo}></BingoButton>
             </motion.section>
         </>
     )
