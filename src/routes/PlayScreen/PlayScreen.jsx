@@ -6,11 +6,19 @@ import BingoButton from "../../components/BingoButton/BingoButton.jsx";
 import {isNumberDrawn} from "../../utils/bingoUtils.js";
 import {motion} from "motion/react"
 import {useLoaderData} from "react-router-dom";
+import useWebSocket, { ReadyState } from "react-use-websocket"
 
 export default function PlayScreen() {
     const [draws, setDraws] = useState([]);
     const [card, setCard] = useState([[]])
-    const ws = useLoaderData()
+    const wsURL = useLoaderData()
+    const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(
+        wsURL,
+        {
+            share: false,
+            shouldReconnect: () => true,
+        }
+    )
 
     function handleMessage(message) {
         switch (message.type) {
@@ -27,12 +35,20 @@ export default function PlayScreen() {
     }
 
     useEffect(() => {
-        ws.onmessage = (event) => {
-            const message = JSON.parse(event.data)
-            console.log("Received message", message)
-            handleMessage(message)
+        if (lastJsonMessage != null) {
+            console.log(`Got a new message: ${lastJsonMessage}`)
+            handleMessage(lastJsonMessage)
         }
-    }, [ws])
+    }, [lastJsonMessage])
+
+    // useEffect(() => {
+    //     ws.onmessage = (event) => {
+    //         const message = JSON.parse(event.data)
+    //         console.log("Received message", message)
+    //         handleMessage(message)
+    //         return false
+    //     }
+    // }, [readyState])
 
     return (
         <>
