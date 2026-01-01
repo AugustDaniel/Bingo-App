@@ -6,12 +6,14 @@ import BingoButton from "../../components/BingoButton/BingoButton.jsx";
 import {motion} from "motion/react"
 import {useLoaderData} from "react-router-dom";
 import useWebSocket, { ReadyState } from "react-use-websocket"
+import { useReward } from 'react-rewards';
+import {toast} from "react-toastify";
 
 export default function PlayScreen() {
     const [draws, setDraws] = useState([])
     const [card, setCard] = useState([[]])
-    const [bingo, setBingo] = useState(false)
     const wsURL = useLoaderData()
+    const { reward, isAnimating } = useReward('bingo-button', 'confetti');
     const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(
         wsURL,
         {
@@ -29,11 +31,15 @@ export default function PlayScreen() {
                 setCard(message.message.card)
                 break
             case "valid_bingo":
-                setBingo(true)
+                reward()
+                toast.success("You have Bingo!")
+                break
             case "invalid_bingo":
-                console.log(message.message)
+                toast.error("Invalid bingo!")
+                break
             case "bingo":
-                console.log(message.message)
+                toast.info(`${message.message} has Bingo!`)
+                break
             default:
                 console.log(message.message)
         }
@@ -62,7 +68,7 @@ export default function PlayScreen() {
             >
                 <NumberDrawer draws={draws}></NumberDrawer>
                 <BingoCard card={card} setCard={setCard}/>
-                <BingoButton onClick={checkForBingo}></BingoButton>
+                <BingoButton onClick={checkForBingo} id="bingo-button"></BingoButton>
             </motion.section>
         </>
     )
