@@ -39,6 +39,13 @@ export default function PlayScreen() {
         }
     }
 
+    function checkForBingo() {
+        sendJsonMessage({
+            type: "bingo",
+            message: "Request bingo check"
+        })
+    }
+
     useEffect(() => {
         if (lastJsonMessage != null) {
             handleMessage(lastJsonMessage)
