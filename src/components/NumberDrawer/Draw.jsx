@@ -1,6 +1,6 @@
 import { motion } from "motion/react"
 
-export default function Draw({content, isFirst, isLast, config}) {
+export default function Draw({content, isFirst, isLast, config, done}) {
     const animations = {
         first: {
             initial: {opacity: 0, x: config.translate},
@@ -16,11 +16,11 @@ export default function Draw({content, isFirst, isLast, config}) {
             initial: {x: config.translate},
             animate: [
                 {x: 0, rotate: 360, transition: {duration: config.duration}},
-                {
+                !done && {
                     opacity: 0,
                     transition: {duration: config.duration, delay: config.intervalDuration / 1000 - config.duration}
                 }
-            ]
+            ].filter(Boolean)
         }
     };
 
