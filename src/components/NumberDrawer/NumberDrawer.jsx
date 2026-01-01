@@ -6,7 +6,6 @@ import useOnResizeWindow from "../../hooks/useOnResizeWindow.jsx";
 export default function NumberDrawer({draws, setDraws}) {
     const drawsToDisplay = 5
     const intervalDuration = 5000
-
     const elementRef = useRef(null);
     const idRef = useRef(0) // needed to ensure wanted render behavior
 
@@ -46,7 +45,7 @@ export default function NumberDrawer({draws, setDraws}) {
                 const draw = draws[index];
                 return (
                     <Draw
-                        key={idRef.current++}
+                        key={`${draw}-${index}-${draws.length}`}
                         config={configRef.current}
                         content={draw ?? ''}
                         isFirst={index === 0}
