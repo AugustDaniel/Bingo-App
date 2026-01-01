@@ -40,6 +40,7 @@ export default function PlayScreen() {
     }
 
     function checkForBingo() {
+        //TODO send schemas instead of raw data
         sendJsonMessage({
             type: "bingo",
             message: "Request bingo check"
