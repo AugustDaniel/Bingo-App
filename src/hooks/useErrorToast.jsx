@@ -3,6 +3,8 @@ import {toast} from "react-toastify";
 
 export default function useErrorToast(errorMessage) {
     useEffect(() => {
-        toast.error(errorMessage);
+        toast.error(errorMessage, {
+            position: 'top-right',
+        });
     }, [errorMessage])
 }
