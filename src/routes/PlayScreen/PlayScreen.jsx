@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import './PlayScreen.css'
 import BingoButton from "../../components/BingoButton/BingoButton.jsx";
 import {motion} from "motion/react"
-import {useLoaderData} from "react-router-dom";
+import {useLoaderData, useNavigate} from "react-router-dom";
 import useWebSocket, { ReadyState } from "react-use-websocket"
 import { useReward } from 'react-rewards';
 import {toast} from "react-toastify";
@@ -12,6 +12,8 @@ import {toast} from "react-toastify";
 export default function PlayScreen() {
     const [draws, setDraws] = useState([])
     const [card, setCard] = useState([[]])
+    const [hasError, setHasError] = useState(false)
+    const navigate = useNavigate()
     const wsURL = useLoaderData()
     const { reward, isAnimating } = useReward('bingo-button', 'confetti');
     const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(
@@ -19,8 +21,17 @@ export default function PlayScreen() {
         {
             share: false,
             shouldReconnect: () => true,
+            onError: () => setHasError(true),
         }
     )
+
+    useEffect(() => {
+        if (hasError) {
+            //TODO use error toast hook or remove the hook
+            toast.error("something went wrong", {position: "top-right"})
+            navigate("/game")
+        } 
+    }, [hasError, navigate])
 
     function handleMessage(message) {
         switch (message.type) {
